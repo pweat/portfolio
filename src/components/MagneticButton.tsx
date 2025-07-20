@@ -17,7 +17,6 @@ const MagneticButton = ({ children }: MagneticButtonProps) => {
     const { clientX, clientY } = e;
     const { height, width, left, top } = ref.current.getBoundingClientRect();
 
-    // Obliczamy pozycję myszy względem środka elementu
     const middleX = clientX - (left + width / 2);
     const middleY = clientY - (top + height / 2);
 

@@ -3,6 +3,7 @@ import InteractiveBackground from "@/components/InteractiveBackground";
 import ScrollAnimator from "@/components/ScrollAnimator";
 import { TypeAnimation } from "react-type-animation";
 import MagneticButton from "@/components/MagneticButton";
+import ProjectCard from "@/components/ProjectCard";
 
 export default function Home() {
   return (
@@ -59,13 +60,16 @@ export default function Home() {
         </section>
 
         <section className="flex min-h-screen items-center justify-center py-20">
-          <div className="pointer-events-auto max-w-2xl rounded-lg bg-black bg-opacity-30 p-8 text-center backdrop-blur-sm">
+          <div className="w-full max-w-lg px-4">
             <ScrollAnimator>
-              <h2 className="mb-4 text-4xl font-bold text-white">Projekty</h2>
-              <p className="text-gray-300">
-                Tutaj wkrótce pojawią się moje niesamowite projekty. Każdy z
-                nich będzie miał własną, animowaną kartę. Stay tuned!
-              </p>
+              <ProjectCard>
+                <h2 className="mb-2 text-3xl font-bold text-white">
+                  Przykładowy Projekt
+                </h2>
+                <p className="text-gray-200">
+                  To jest karta projektu z efektem 3D.
+                </p>
+              </ProjectCard>
             </ScrollAnimator>
           </div>
         </section>
