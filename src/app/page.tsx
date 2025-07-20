@@ -2,6 +2,7 @@
 import InteractiveBackground from "@/components/InteractiveBackground";
 import ScrollAnimator from "@/components/ScrollAnimator";
 import { TypeAnimation } from "react-type-animation";
+import MagneticButton from "@/components/MagneticButton";
 
 export default function Home() {
   return (
@@ -45,6 +46,14 @@ export default function Home() {
                 Cras commodo, ex ac vulputate pharetra, ex justo interdum
                 ligula, ut vulputate sem justo et quam.
               </p>
+              {/* 2. Dodajemy magnetyczny przycisk */}
+              <div className="mt-8">
+                <MagneticButton>
+                  <button className="rounded-full bg-white px-6 py-3 font-semibold text-black transition-colors hover:bg-gray-200">
+                    Pobierz CV
+                  </button>
+                </MagneticButton>
+              </div>
             </ScrollAnimator>
           </div>
         </section>
