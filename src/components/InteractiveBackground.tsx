@@ -3,6 +3,7 @@
 import { useRef, useMemo } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial } from "@react-three/drei";
+import { MathUtils } from "three";
 
 const Starfield = () => {
   const ref = useRef<any>(null);
@@ -15,15 +16,26 @@ const Starfield = () => {
     return positions;
   }, []);
 
-  useFrame((_state, delta) => {
+  useFrame((state, delta) => {
     if (ref.current) {
-      ref.current.rotation.x -= delta / 10;
-      ref.current.rotation.y -= delta / 15;
+      const mouseX = state.pointer.x;
+      const mouseY = state.pointer.y;
+
+      ref.current.rotation.y = MathUtils.lerp(
+        ref.current.rotation.y,
+        mouseX * 0.5,
+        0.1
+      );
+      ref.current.rotation.x = MathUtils.lerp(
+        ref.current.rotation.x,
+        -mouseY * 0.5,
+        0.1
+      );
     }
   });
 
   return (
-    <group rotation={[0, 0, Math.PI / 4]}>
+    <group>
       <Points ref={ref} positions={points} stride={3} frustumCulled={false}>
         <PointMaterial
           transparent
