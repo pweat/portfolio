@@ -1,19 +1,33 @@
+"use client";
 import InteractiveBackground from "@/components/InteractiveBackground";
 import ScrollAnimator from "@/components/ScrollAnimator";
+import { TypeAnimation } from "react-type-animation";
 
 export default function Home() {
   return (
     <>
       <InteractiveBackground />
-
       <main className="relative z-10 w-full pointer-events-none">
         {/* --- Sekcja Hero --- */}
         <section className="flex h-screen flex-col items-center justify-center text-center">
           <div className="pointer-events-auto">
             <ScrollAnimator>
-              <h1 className="text-5xl font-bold text-white">
-                Witaj w moim portfolio!
-              </h1>
+              <TypeAnimation
+                sequence={[
+                  "Witaj w moim portfolio!",
+                  1500,
+                  "Jestem kreatywnym programistą.",
+                  2000,
+                  "Specjalizuję się w React i Next.js.",
+                  2000,
+                  "Zobacz, co potrafię.",
+                  2500,
+                ]}
+                wrapper="h1"
+                speed={50}
+                className="text-5xl font-bold text-white"
+                repeat={Infinity}
+              />
               <p className="mt-4 text-lg text-gray-400">
                 Przewiń w dół, aby dowiedzieć się więcej.
               </p>
@@ -21,7 +35,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* --- Sekcja O Mnie --- */}
         <section className="flex min-h-screen items-center justify-center py-20">
           <div className="pointer-events-auto max-w-2xl rounded-lg bg-black bg-opacity-30 p-8 text-center backdrop-blur-sm">
             <ScrollAnimator>
@@ -36,7 +49,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* --- Sekcja Projekty --- */}
         <section className="flex min-h-screen items-center justify-center py-20">
           <div className="pointer-events-auto max-w-2xl rounded-lg bg-black bg-opacity-30 p-8 text-center backdrop-blur-sm">
             <ScrollAnimator>
